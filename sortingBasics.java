@@ -33,6 +33,44 @@ public class sortingBasics {
         }
     }
 
+    public static void insertionSort(int array[]){
+        int n=array.length,j;
+        for(int i=1;i<n;i++){
+            j=i-1;
+            int key=array[i];
+            while(j>=0 && array[j]>key){
+                array[j+1]=array[j];//all elements greater than key , are moved one position ahead 
+                j--;
+            }
+            array[j+1]=key;
+        }
+        for(int i=0;i<n;i++){
+            System.out.print(array[i] + " ");
+        }
+    }
+
+    public static void countSort(int array[]){
+        int n=array.length;
+        int  maxV=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            if(array[i]>maxV)maxV=array[i];
+        }
+        int counts[] = new int[maxV+1];
+        int sortedArray[]=new int [n];
+        for(int i=0;i<n;i++){
+            counts[array[i]]++;
+        }
+        int k=0;
+        for(int i=0;i<counts.length;i++){
+            for(int j=0;j<counts[i];j++){
+                sortedArray[k]=i;
+                k++;
+            }
+        }
+        for(int i=0;i<n;i++){
+            System.out.print(sortedArray[i] + " ");
+        }
+    }
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
         int array[]=new int[5];
@@ -40,6 +78,8 @@ public class sortingBasics {
             array[i]=sc.nextInt();
         }
         //bubbleSort(array);
-        selectionSort(array);
+        //selectionSort(array);
+        insertionSort(array);
+        //countSort(array);
     }
 }
