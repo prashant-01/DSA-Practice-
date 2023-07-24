@@ -1,4 +1,4 @@
-Data Structure and Algorithm Problems
+Data Structure and Algorithm - JAVA
 Welcome to the repository of data structure and algorithm problems! This repository is designed to provide a collection of common programming problems, along with their solutions, to help you practice and improve your skills in data structures and algorithms.
 
 Problem Categories
