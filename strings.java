@@ -35,9 +35,9 @@ public class strings {
         System.out.println(minDistance);
     }
     public static void main(String[] args) {
-        Scanner sc= new Scanner(System.in);
-        String str=sc.nextLine();
+        // Scanner sc= new Scanner(System.in);
+        // String str=sc.nextLine();
         //checkPalindrome(str);
-        shortestDistance(str);
+        //shortestDistance(str);
     }
 }
