@@ -1,0 +1,1 @@
+int currSum=0 , mxLength=-1;
