@@ -1,0 +1,1 @@
+insertNode(&head ,  0 , 6);
