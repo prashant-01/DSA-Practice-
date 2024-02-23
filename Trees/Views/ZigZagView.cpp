@@ -48,9 +48,8 @@ void zigZagView( Node* root ){
     dq.push_back( root );
     dq.push_back(NULL);
     while( !dq.empty() ){
-        Node* temp;
         if( level % 2 == 0 ){
-            temp = dq.front();
+            Node* temp = dq.front();
             dq.pop_front();
 
             if( temp == NULL ){
@@ -70,7 +69,7 @@ void zigZagView( Node* root ){
             }
         }
         else{
-            temp = dq.back();
+            Node* temp = dq.back();
             dq.pop_back();
 
             if( temp == NULL ){

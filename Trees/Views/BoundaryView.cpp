@@ -68,11 +68,11 @@ void leafNodes( Node* root , vector<int>&ans){
 void rightBoundary( Node* root , vector<int>&ans){
     if( root == NULL || (root->left == NULL && root->right == NULL) )return;
     ans.push_back(root->data);
-    if( root->left ){
-        leftBoundary( root->left , ans );
+    if( root->right ){
+        rightBoundary( root->right , ans );
     }
     else{
-        leftBoundary( root->right , ans );
+        rightBoundary( root->left , ans );
     }
     return;
 }
