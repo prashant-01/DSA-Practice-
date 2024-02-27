@@ -38,27 +38,26 @@ void takeInput(Node* &root){
         
     }
 }
-
-void convertBSTtoDLL( Node* root , Node* &head ){
+vector<Node*>inorder;
+void inOrderTraversal( Node* root ){
     if( root == NULL )return;
-    convertBSTtoDLL( root->right , head );
+    inOrderTraversal( root -> left );
+    inorder.push_back(root);
+    inOrderTraversal( root -> right );
+} 
 
-    // jo bhi right side se LL create hoke ayi h uska head current root node ke right se link krdo
-    root->right = head;
-
-    // if head is not NULL then Link that head also to current root node;
-    if( head != NULL ){
-        head->left = root;
+void convertBSTtoLL( Node* &head ){
+    for(int i=0 ; i<inorder.size() ; i++){
+        inorder[i]->left=NULL;
+        if(i == inorder.size()-1){
+            inorder[i]->right=NULL;
+        }
+        else inorder[i]->right=inorder[i+1];
     }
-    // head ko update krdo
-    head = root;
-
-    // left subtree ko LL m convert kro
-    convertBSTtoDLL( root->left , head );
+    head = inorder[0];
 }
-
-void printDLL( Node* head ){
-    cout << "Sorted Doubly Linked List " << endl;
+void printLL( Node* head ){
+    cout << "Sorted Linked List " << endl;
     while( head != NULL){
         cout << head->data << " ";
         head = head->right;
@@ -69,7 +68,7 @@ int main(){
     Node* root = NULL ; 
     Node* head = NULL;
     takeInput( root );
-    convertBSTtoDLL( root , head );
-    printDLL( head );
+    inOrderTraversal(root);
+    convertBSTtoLL( head );
+    printLL( head );
 }
-
