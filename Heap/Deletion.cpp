@@ -3,7 +3,7 @@ using namespace std;
 
 void heapInsertion(vector<int>&v){
     int index = v.size()-1;
-    while(index > 1){
+    while(index > 0){
         int parent = index/2;
         if(v[parent] < v[index]){
             swap(v[parent] , v[index]);
@@ -16,14 +16,15 @@ void heapInsertion(vector<int>&v){
 // deletion in heap is root node deleteion
 void heapDeletion( vector<int>&v ){
     // put last node at root position
-    v[1]=v[v.size()-1];
-    int size = v.size() - 2;
+    v[0]=v[v.size()-1];
+    v.pop_back();
+    int size = v.size();
 
     // now putting this new root at this correct pos
-    int index = 1;
+    int index = 0;
     while(index < size){
-        int leftChildIndex = 2*index ;
-        int rightChildIndex = 2*index + 1;
+        int leftChildIndex = 2*index + 1 ;
+        int rightChildIndex = 2*index + 2;
         if(leftChildIndex <= size && v[index] < v[leftChildIndex]){
             swap(v[index] , v[leftChildIndex]);
             index = leftChildIndex ;
@@ -37,7 +38,6 @@ void heapDeletion( vector<int>&v ){
 }
 int main(){
     vector<int>v;
-    v.push_back(-1);
     int n;
     while(1){
         cin >> n;

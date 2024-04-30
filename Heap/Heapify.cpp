@@ -10,7 +10,7 @@ void heapify(vector<int>&v , int i){
     if(rightNode < v.size() && v[largest] < v[rightNode])largest=rightNode;
 
     if(largest != i){
-        swap(v[largest] , v[i]);
+        swap(v[i] , v[largest]);
         heapify(v , largest);
     }
     else return;
